@@ -48,7 +48,7 @@ public class ScoreCounter : MonoBehaviour
             {
                 _highscore = _score;
             }
-            
+
             currentScore.text = _score.ToString("0");
             highScore.text = _highscore.ToString("0");
             SaveScoreInformation();
