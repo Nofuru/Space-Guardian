@@ -37,9 +37,10 @@ namespace Ship
         {
             for (;;)
             {
-                //Debug.Log(EventSystem.current.IsPointerOverGameObject());
-                if (!EventSystem.current.IsPointerOverGameObject()) 
+                if (!EventSystem.current.IsPointerOverGameObject())
+                {
                     Move(_touchInput.Ship.Move.ReadValue<Vector2>());
+                }
                 
                 yield return new WaitForFixedUpdate();
             }
