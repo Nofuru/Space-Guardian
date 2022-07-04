@@ -14,17 +14,16 @@ namespace Ship
 
         private void Start()
         {
-            if (PlayerPrefs.HasKey("ButtonText") && ColorKeeper.purchasedColors.Contains(color))
+            if (PlayerPrefs.HasKey("ButtonText" + color))
             {
-                text.text = PlayerPrefs.GetString("ButtonText");
+                text.text = PlayerPrefs.GetString("ButtonText" + color);
             }
 
-            if (PlayerPrefs.HasKey("IsPurchased") && ColorKeeper.purchasedColors.Contains(color))
+            if (PlayerPrefs.HasKey("IsPurchased" + color))
             {
-                _isPurchased = PlayerPrefs.GetInt("IsPurchased");
+                _isPurchased = PlayerPrefs.GetInt("IsPurchased" + color);
             }
         }
-
 
         private void SetColor()
         {
@@ -56,8 +55,8 @@ namespace Ship
         private void SavePurchaseInformation()
         {
             PlayerPrefs.SetInt("SavedColor", color);
-            PlayerPrefs.SetInt("IsPurchased", _isPurchased);
-            PlayerPrefs.SetString("ButtonText", text.text);
+            PlayerPrefs.SetInt("IsPurchased" + color, _isPurchased);
+            PlayerPrefs.SetString("ButtonText" + color, text.text);
             
             PlayerPrefs.Save();
         }
